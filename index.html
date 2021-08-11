@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <h1>Hello!</h1>
+    <h2>My name is Owen. (also known as crossflame20)</h2>
+    <p id="birthday paragraph"></p>
+    <script>
+        // establishing today's date
+        let currentTime = new Date();
+        let month = currentTime.getMonth() + 1;
+        let day = currentTime.getDate();
+        let year = currentTime.getFullYear();
+
+        // my birthdate
+        const birthMonth = 7;
+        const birthDay = 24;
+        const birthYear = 2004;
+
+        // comparing the two dates
+        let monthDifference = Math.abs(month - birthMonth);
+        let dayDifference = Math.abs(day - birthDay);
+        let yearDifference = Math.abs(year - birthYear);
+
+        // save and return the difference in a readable format
+        let comparison = `${yearDifference} year, ${monthDifference} month, ${dayDifference} day`;
+        document.getElementById("birthday paragraph").innerText = `I am a ${comparison} old programmer from Concord, Ohio.`;
+        </script>
+    <p>I will be updating this website as I improve at programming, and as I finish/start projects.</p>
+</html>
