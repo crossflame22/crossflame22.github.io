@@ -2,7 +2,7 @@
 
 <html lang="en">
     <h1>Hello!</h1>
-    <h2>My name is Owen. (also known as crossflame20, but I lost my crossflame20 github account, so I made a "crossflame22" account.)</h2>
+    <h2>My name is Owen. (also known as crossflame20, but I lost my crossflame20 GitHub account, so I made a "crossflame22" account.)</h2>
     <p id="birthday paragraph"></p>
     <script>
         // establishing today's date
@@ -22,8 +22,10 @@
         let yearDifference = Math.abs(year - birthYear);
 
         // save and return the difference in a readable format
-        let comparison = `${yearDifference} year, ${monthDifference} month, ${dayDifference} day`;
-        document.getElementById("birthday paragraph").innerText = `I am a ${comparison} old programmer from Concord, Ohio.`;
+        let comparison = `${yearDifference} year, \
+        ${monthDifference} month, ${dayDifference} day`;
+        document.getElementById("birthday paragraph").innerText = `I \
+        am a ${comparison} old programmer from Concord, Ohio.`;
         </script>
     <p>I will be updating this website as I improve at programming, and as I finish/start projects.</p>
 </html>
