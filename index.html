@@ -12,7 +12,7 @@
         let year = currentTime.getFullYear();
 
         // function to get days of any month
-        function daysInMonth(_month, _year) {
+        function daysInMonth (_month, _year) {
             return new Date(_year, _month, 0).getDate();
         }
 
@@ -47,8 +47,19 @@
         } // thanks ms c for helping get this figured out!
 
         // save and return the difference in a readable format
-        let comparison = `${yearDifference} year, \
-        ${monthDifference} month, ${dayDifference} day`;
+        let comparison;
+        if (dayDifference === 0) {
+            comparison = `${yearDifference} year, \
+            ${monthDifference} month`;
+        } else if (monthDifference === 0) {
+            comparison = `${yearDifference} year, \
+            ${dayDifference} day`;
+        } else if (dayDifference === 0 && monthDifference === 0) {
+            comparison = `${yearDifference} year`;
+        } else {
+            comparison = `${yearDifference} year, \
+            ${monthDifference} month, ${dayDifference} day`;
+        }
         document.getElementById("birthday paragraph").innerText = `I \
         am a ${comparison} old programmer from Concord, Ohio.`;
         </script>
