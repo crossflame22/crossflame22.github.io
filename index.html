@@ -11,15 +11,40 @@
         let day = currentTime.getDate();
         let year = currentTime.getFullYear();
 
+        // function to get days of any month
+        function daysInMonth(_month, _year) {
+            return new Date(_year, _month, 0).getDate();
+        }
+
+        // get days after the 24th of last month
+        if (month >= 2) {
+            daysAfter = daysInMonth(month - 1, year) - 24;
+        } else {
+            daysAfter = daysInMonth(12, year - 1);
+        }
+
         // my birthdate
         const birthMonth = 7;
         const birthDay = 24;
         const birthYear = 2004;
 
         // comparing the two dates
-        let monthDifference = Math.abs(month - birthMonth);
-        let dayDifference = Math.abs(day - birthDay);
-        let yearDifference = Math.abs(year - birthYear);
+        let yearDifference = year - birthYear;
+        let monthDifference;
+        let dayDifference;
+
+        if (month >= birthMonth) {
+            monthDifference = month - birthMonth;
+        } else {
+            monthDifference = month + 5;
+            yearDifference -= 1
+        }
+        if (day >= birthDay) {
+            dayDifference = day - birthDay;
+        } else {
+            dayDifference = daysAfter + day;
+            monthDifference -= 1;
+        } // thanks ms c for helping get this figured out!
 
         // save and return the difference in a readable format
         let comparison = `${yearDifference} year, \
