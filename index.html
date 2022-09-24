@@ -1,10 +1,125 @@
 <!doctype html>
+<!-- this is a website -->
 <html>
-<head>
-<meta charset="utf-8">
-<title>Home</title>
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <link href="main.css" rel="stylesheet">
+        <script type="text/javascript" src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="box">
+            <span id="main-page" class="loaded-menu-page">
+                <div class="heading">
+                    <h1>Owen Pastor</h1>
+                    <h3>Software/game dev,<br>Amateur photographer.</h3>
+                </div>
+                <div class="divider divider-bottom"></div>
+                <div>
+                    <div class="buton">
+                        <button class="front-page-button" data-target="#about-me">About Me</button>
+                        <button class="front-page-button" data-target="#mrok">Work</button>
+                        <button class="front-page-button" data-target="#contact-me">Contact Me</button>
+                    </div>
+                </div>
+            </span>
+            <span id="about-me" class="hidden">
+                <h1>Hello!</h1>
+                <div class="about-me-body">
+                    <h2>My name is Owen. (also known as crossflame20, but I lost my crossflame20 GitHub account, so I made a "crossflame22" account.)</h2>
+                    <p id="birthday paragraph"></p>
+                    <script>
+                        // establishing today's date
+                        let currentTime = new Date();
+                        let month = currentTime.getMonth() + 1;
+                        let day = currentTime.getDate();
+                        let year = currentTime.getFullYear();
 
-<body>
-</body>
+                        // function to get days of any month
+                        function daysInMonth (_month, _year) {
+                            return new Date(_year, _month, 0).getDate();
+                        }
+
+                        // get days after the 24th of last month
+                        if (month >= 2) {
+                            daysAfter = daysInMonth(month - 1, year) - 24;
+                        } else {
+                            daysAfter = daysInMonth(12, year - 1);
+                        }
+
+                        // my birthdate
+                        const birthMonth = 7;
+                        const birthDay = 24;
+                        const birthYear = 2004;
+
+                        // comparing the two dates
+                        let yearDifference = year - birthYear;
+                        let monthDifference;
+                        let dayDifference;
+
+                        if (month >= birthMonth) {
+                            monthDifference = month - birthMonth;
+                        } else {
+                            monthDifference = month + 5;
+                            yearDifference -= 1
+                        }
+                        if (day >= birthDay) {
+                            dayDifference = day - birthDay;
+                        } else {
+                            dayDifference = daysAfter + day;
+                            monthDifference -= 1;
+                        } // thanks ms c for helping get this figured out!
+
+                        // save and return the difference in a readable format
+                        let comparison;
+                        if (dayDifference === 0) {
+                            comparison = `${yearDifference} year, \
+                            ${monthDifference} month`;
+                        } else if (monthDifference === 0) {
+                            comparison = `${yearDifference} year, \
+                            ${dayDifference} day`;
+                        } else if (dayDifference === 0 && monthDifference === 0) {
+                            comparison = `${yearDifference} year`;
+                        } else {
+                            comparison = `${yearDifference} year, \
+                            ${monthDifference} month, ${dayDifference} day`;
+                        }
+                        document.getElementById("birthday paragraph").innerText = `I \
+                        am a ${comparison} old programmer from Concord, Ohio.`;
+                        </script>
+                    <p>I will be updating this website as I improve at programming, and as I finish/start projects.</p>
+                </div>
+                <div class="divider"></div>
+                <button class="front-page-button" data-target="#main-page">Back</button>
+            </span>
+            <span id="mrok" class="hidden">
+                <div class="projects-list">
+                    <h3>Projects</h3>
+                    <div class="divider-sm"></div>
+                    <h2>Current</h2>
+                    <h3>This Website</h3>
+                    <p>I'm going to try to always be working on this website, as I improve at programming.</p>
+                    <div class="divider-sm"></div>
+                    <h3>Gamer Code (might change title)</h3>
+                    <p>This is a program a friend wrote with a bit of my help, that I'm going to try to rewrite in order to add more support for users outside our school.</p>
+                    <div class="divider-sm"></div>
+                    <h2>Finished</h2>
+                    <p>None so far!</p>
+                    <div class="divider"></div>
+                    <button class="front-page-button" data-target="#main-page">Back</button>
+                </div>
+            </span>
+            <span id="contact-me" class="hidden">
+                <div class="contact-items">
+                    <h1>Contact Me</h1>
+                    <h2>Discord</h2>
+                    <p>The easiest way to get in touch with me; just friend me on discord (crossflame20#0001), and if you don't look like a bot, I'll accept.</p>
+                    <h2>Email</h2>
+                    <p>Additionally, you can reach me at owen@crossfla.me.</p>
+                    <div class="divider"></div>
+                    <button class="front-page-button" data-target="#main-page">Back</button>
+                </div>
+            </span>
+        </div>
+    </body>
 </html>
